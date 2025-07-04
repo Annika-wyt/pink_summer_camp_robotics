@@ -1,8 +1,17 @@
-# To send the path from your computer to the SVEA vehicle, there are 2 major components:
+# Instructions
+
+## To send the path from your computer to the SVEA vehicle, there are 2 major components:
 1. docker 
     - to run a "datastreamer" to connects your computer to the SVEA vehicle
 2. python
     - to produce the path, which is then followed by the SVEA vehicle
+
+Use these instructions to set up the FleetMQ datastreamer and Python scripts to communicate between your computer and a SVEA vehicle. Select your operating system to get started:
+
+- [Linux](#linux)
+- [Windows](#windows)
+- [Mac](#mac)
+
 
 ## Linux
 
