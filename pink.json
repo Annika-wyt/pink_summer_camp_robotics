@@ -1,0 +1,171 @@
+{
+  "configById": {
+    "3D!37xlp7y": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 10.266841665584016,
+        "phi": 24.278244851460887,
+        "thetaOffset": 114.97215666200289,
+        "targetOffset": [
+          0.8835537938324617,
+          -1.2164161928748483,
+          3.9827133445725505e-17
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-none",
+      "followTf": "map",
+      "scene": {},
+      "transforms": {
+        "frame:map": {
+          "visible": true
+        },
+        "frame:t265_camera_pose_frame": {
+          "visible": false
+        },
+        "frame:t265_camera_odom_frame": {
+          "visible": false
+        },
+        "frame:imu": {
+          "visible": false
+        },
+        "frame:laser": {
+          "visible": false
+        },
+        "frame:gps": {
+          "visible": false
+        },
+        "frame:odom": {
+          "visible": false
+        }
+      },
+      "topics": {
+        "/map": {
+          "visible": true
+        },
+        "/scan": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "colormap",
+          "colorMap": "turbo"
+        },
+        "/svea/path": {
+          "visible": true,
+          "lineWidth": 0.1,
+          "type": "line"
+        }
+      },
+      "layers": {
+        "grid": {
+          "visible": true,
+          "frameLocked": true,
+          "label": "Grid",
+          "instanceId": "b2cdb6c1-4db9-42c0-983d-410edc02dfd5",
+          "layerId": "foxglove.Grid",
+          "size": 10,
+          "divisions": 10,
+          "lineWidth": 1,
+          "color": "#248eff",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    },
+    "RawMessages!3w3qt5l": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/svea/path"
+    },
+    "RawMessages!1aa52v8": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/fmq/path"
+    },
+    "CallService!2m6cc7m": {
+      "requestPayload": "{\"data\":true}",
+      "layout": "vertical",
+      "timeoutSeconds": 10,
+      "serviceName": "/set_auto_control",
+      "editingMode": false,
+      "foxglovePanelTitle": "Change to Auto Control",
+      "buttonText": "Autonomous Driving"
+    },
+    "CallService!2gjde2u": {
+      "requestPayload": "{\"data\":false}",
+      "layout": "vertical",
+      "timeoutSeconds": 10,
+      "serviceName": "/set_auto_control",
+      "editingMode": false,
+      "foxglovePanelTitle": "Change to Auto Control",
+      "buttonText": "Manual Driving"
+    },
+    "Tab!3zxdz11": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "",
+          "layout": {
+            "first": "3D!37xlp7y",
+            "second": {
+              "first": {
+                "first": "RawMessages!3w3qt5l",
+                "second": "RawMessages!1aa52v8",
+                "direction": "column"
+              },
+              "second": {
+                "first": "CallService!2m6cc7m",
+                "second": "CallService!2gjde2u",
+                "direction": "column"
+              },
+              "direction": "column",
+              "splitPercentage": 44.637385086823286
+            },
+            "direction": "row",
+            "splitPercentage": 56.53120464441219
+          }
+        }
+      ]
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": "Tab!3zxdz11"
+}
