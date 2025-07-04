@@ -137,8 +137,8 @@ You can now continue with the next part. If you do not see the above layout, let
     The command with `--end=1,2` specify the goal position of the vehicle, you can change the value of `1` and `2` to anything that are within the map boundary.
 
 ### Bonus
-
-If you want to see the path planned by A*, you can go onto https://app.foxglove.dev/. Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
+If you want to see the path planned by A*, you can go onto 
+[Foxglove](https://app.foxglove.dev/). Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
 
 Then, on upper right, look for the arrow to the right of "Layout", click it and selec "Import from file...", go to the directory where you did `git clone`, and go to select `pink.json`. 
 
@@ -287,7 +287,7 @@ Now on the website, you will be able to see a path planned by A*.
 
 ### Bonus
 
-If you want to see the path planned by A*, you can go onto https://app.foxglove.dev/. Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
+If you want to see the path planned by A*, you can go onto [Foxglove](https://app.foxglove.dev/). Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
 
 Then, on upper right, look for the arrow to the right of "Layout", click it and selec "Import from file...", go to the directory where you did `git clone`, and go to select `pink.json`. 
 
@@ -421,7 +421,7 @@ Now on the website, you will be able to see a path planned by A*.
 
 ### Bonus
 
-If you want to see the path planned by A*, you can go onto https://app.foxglove.dev/. Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
+If you want to see the path planned by A*, you can go onto [Foxglove](https://app.foxglove.dev/). Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
 
 Then, on upper right, look for the arrow to the right of "Layout", click it and selec "Import from file...", go to the directory where you did `git clone`, and go to select `pink.json`. 
 
