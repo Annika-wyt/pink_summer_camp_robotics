@@ -51,7 +51,7 @@ You can now continue with the next part. If you do not see the above layout, let
     docker-compose --version
     ```
 
-    If you see something like `docker-compose version x.xx.xx`, then you can continue with step 2. Otherwise, check the information pack we sent you for the instruction for installing docker.
+    If you see something like `docker-compose version x.xx.xx`, then you can continue with step 2. Otherwise, check the [Information Pack](Information_pack_Robotics_And_AI_Camp_2025.pdf) we sent you for the instruction for installing docker.
 
 #TODO: add different compose file for different group
 
@@ -78,7 +78,7 @@ You can now continue with the next part. If you do not see the above layout, let
     ```
     python3 --version
     ```
-    if you see `Python x.xx.xx` for either of the command, then you can continue with step 2. Otherwise, follow the instruction on how to install python. 
+    if you see `Python x.xx.xx` for either of the command, then you can continue with step 2. Otherwise, follow the [Python Installation Instruction](python_installation_instruction.pdf) on how to install python. 
 
     #### NOTES: 
     `python` and `python3` are commands you type before your scripts (like `python script.py`), not folder names.
@@ -192,7 +192,7 @@ Now on the website, you will be able to see a path planned by A*.
     docker-compose version
     ```
 
-    If you see something like ```docker-compose version x.xx.xx```, then you're good to go. Otherwise, check the information pack we sent you for the instruction for installing docker.
+    If you see something like ```docker-compose version x.xx.xx```, then you're good to go. Otherwise, check the [Information Pack](Information_pack_Robotics_And_AI_Camp_2025.pdf) we sent you for the instruction for installing docker.
 
 #TODO: add different compose file for different group
 
@@ -219,7 +219,7 @@ Now on the website, you will be able to see a path planned by A*.
     ```
     python3 --version
     ```
-    if you see `Python x.xx.xx` for either of the command, then you can continue with step 2. Otherwise, follow the instruction on how to install python. 
+    if you see `Python x.xx.xx` for either of the command, then you can continue with step 2. Otherwise, follow the [Python Installation Instruction](python_installation_instruction.pdf)  on how to install python. 
 
     #### NOTES: 
     `python` and `python3` are commands you type before your scripts (like `python script.py`), not folder names.
@@ -333,7 +333,7 @@ Now on the website, you will be able to see a path planned by A*.
     docker compose version
     ```
 
-    If you see something like ```docker compose version x.xx.xx```, then you're good to go. Otherwise, check the information pack we sent you for the instruction for installing docker.
+    If you see something like ```docker compose version x.xx.xx```, then you're good to go. Otherwise, check the [Information Pack](Information_pack_Robotics_And_AI_Camp_2025.pdf) we sent you for the instruction for installing docker.
 
     #TODO: add different compose file for different group
 
@@ -360,7 +360,7 @@ Now on the website, you will be able to see a path planned by A*.
     ```
     python3 --version
     ```
-    if you see `Python x.xx.xx` for either of the command, then you can continue with step 2. Otherwise, follow the instruction on how to install python. 
+    if you see `Python x.xx.xx` for either of the command, then you can continue with step 2. Otherwise, follow the [Python Installation Instruction](python_installation_instruction.pdf) on how to install python. 
 
     #### NOTES: 
     `python` and `python3` are commands you type before your scripts (like `python script.py`), not folder names.
