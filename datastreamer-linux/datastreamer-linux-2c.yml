@@ -1,0 +1,6 @@
+services:
+  datastreamer:
+    image: ghcr.io/fleetmq/datastreamer-beta-eap:da3f6fc
+    command: '-id=controller2c -configId=group-2c-config -groupId=fmq_3b47e5a312a5c81142414d00d5146d06e40b80eaeef8cedb7a79ec6baacb8d09 -turn=enabled --eap'
+    privileged: true
+    network_mode: 'host'

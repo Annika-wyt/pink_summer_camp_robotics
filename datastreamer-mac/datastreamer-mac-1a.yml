@@ -1,0 +1,12 @@
+services:
+  datastreamer:
+    image: ghcr.io/fleetmq/datastreamer-beta-eap:da3f6fc
+    command: '-id=controller1a -configId=group-1a-config -groupId=fmq_3b47e5a312a5c81142414d00d5146d06e40b80eaeef8cedb7a79ec6baacb8d09 -networkHost=host.docker.internal -turn=enabled --eap'
+    ports:
+           - "5550:5550"
+           - "5558:5558"
+           - "6002:6002"
+           - "6003:6003"
+           - "6004:6004"
+    privileged: true
+
