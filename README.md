@@ -38,10 +38,12 @@ Use these instructions to set up the FleetMQ datastreamer and Python scripts to 
 
     you will see output similar to
 
-    #TODO: update the below layout
-
     ```
-    datastreamer-linux.yml  datastreamer-mac.yml  datastreamer-windows.yml  pink.json  python  README.md
+    datastreamer-linux                              pink.json
+    datastreamer-mac                                python
+    datastreamer-windows                            python_installation_instruction.pdf
+    Information_pack_Robotics_And_AI_Camp_2025.pdf  README.md
+
     ```
 You can now continue with the next part. If you do not see the above layout, let us know!
 
@@ -53,12 +55,13 @@ You can now continue with the next part. If you do not see the above layout, let
 
     If you see something like `docker-compose version x.xx.xx`, then you can continue with step 2. Otherwise, check the [Information Pack](Information_pack_Robotics_And_AI_Camp_2025.pdf) we sent you for the instruction for installing docker.
 
-#TODO: add different compose file for different group
-
 2. On the same terminal, type:
-
     ```
-    docker compose -f datastreamer-linux.yml up
+    cd datastreamer-linux
+    ```
+    Then,
+    ```
+    docker compose -f datastreamer-linux-<groupName>.yml up
     ```
 
     If you see something like:
@@ -169,19 +172,19 @@ Now on the website, you will be able to see a path planned by A*.
 
     you will see output similar to
 
-    #TODO: update the below layout
-
     ```
         Directory: C:\Users\YourName\pink_summer_camp_robotics
 
         Mode                LastWriteTime         Length Name
         ----                -------------         ------ ----
-        -a----        2024-07-01     12:34            123 datastreamer-linux.yml
-        -a----        2024-07-01     12:34            123 datastreamer-mac.yml
-        -a----        2024-07-01     12:34            123 datastreamer-windows.yml
-        -a----        2024-07-01     12:34            456 pink.json
-        d-----        2024-07-01     12:34                python
-        -a----        2024-07-01     12:34            789 README.md
+        -a----        2025-07-01     12:34                datastreamer-linux
+        -a----        2025-07-01     12:34                datastreamer-mac
+        -a----        2025-07-01     12:34                datastreamer-windows
+        -a----        2025-07-01     12:34            456 pink.json
+        d-----        2025-07-01     12:34                python
+        -a----        2025-07-01     12:34           1024 python_installation_instruction.pdf
+        -a----        2025-07-01     12:34           2048 Information_pack_Robotics_And_AI_Camp_2025.pdf
+        -a----        2025-07-01     12:34            789 README.md
     ```
 
     You can now continue with the next part. If you do not see something similar to the above layout, let us know!
@@ -194,12 +197,13 @@ Now on the website, you will be able to see a path planned by A*.
 
     If you see something like ```docker-compose version x.xx.xx```, then you're good to go. Otherwise, check the [Information Pack](Information_pack_Robotics_And_AI_Camp_2025.pdf) we sent you for the instruction for installing docker.
 
-#TODO: add different compose file for different group
-
 2. On the same command prompt, type:
-
     ```
-    docker compose -f datastreamer-windows.yml up
+    cd datastreamer-windows
+    ```
+    Then, 
+    ```
+    docker compose -f datastreamer-windows-<groupName>.yml up
     ```
 
     If you see something like:
@@ -319,10 +323,11 @@ Now on the website, you will be able to see a path planned by A*.
 
     you will see output similar to
 
-    #TODO: update the below layout
-
     ```
-    datastreamer-linux.yml  datastreamer-mac.yml  datastreamer-windows.yml  pink.json  python  README.md
+    datastreamer-linux                              pink.json
+    datastreamer-mac                                python
+    datastreamer-windows                            python_installation_instruction.pdf
+    Information_pack_Robotics_And_AI_Camp_2025.pdf  README.md
     ```
     
     You can now continue with the next part. If you do not see the above layout, let us know!
@@ -335,12 +340,13 @@ Now on the website, you will be able to see a path planned by A*.
 
     If you see something like ```docker compose version x.xx.xx```, then you're good to go. Otherwise, check the [Information Pack](Information_pack_Robotics_And_AI_Camp_2025.pdf) we sent you for the instruction for installing docker.
 
-    #TODO: add different compose file for different group
-
 2. On the same terminal, type:
-
     ```
-    docker compose -f datastreamer-mac.yml up
+    cd datastreamer-mac
+    ```
+    Then, 
+    ```
+    docker compose -f datastreamer-mac-<groupName>.yml up
     ```
 
     If you see something like:
