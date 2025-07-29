@@ -71,8 +71,8 @@ class remote_control():
             raw_msg = self.fleetmq.receiveBytes(topic)
             if raw_msg != None:
                 try:
-                    parts = raw_msg.split(b"|")
-                    x, y, yaw = struct.unpack_from('<ddd', parts[2][-24:])
+                    parts = raw_msg.split(self.delimiter)
+                    x, y, yaw = struct.unpack_from('<ddd', parts[1][-24:])
                     self.state = np.array([x, y, yaw], dtype=np.float32)
                     if self.debug:
                         print(f"Received msg: {self.state}")
@@ -84,11 +84,11 @@ class remote_control():
             raw_msg = self.fleetmq.receiveBytes(topic)
             if raw_msg != None:
                 try:
-                    parts = raw_msg.split(b"|")
-                    self.reso, width, height, origin_x, origin_y = struct.unpack_from('<fII dd', parts[2], 27)
+                    parts = raw_msg.split(self.delimiter)
+                    self.reso, width, height, origin_x, origin_y = struct.unpack_from('<fII dd', parts[1], 27)
                     self.origin = (origin_x, origin_y)
-                    data_len = struct.unpack_from('<I', parts[2][95:99])[0]
-                    self.map = list(struct.unpack_from(f'<{data_len}b', parts[2][99:]))
+                    data_len = struct.unpack_from('<I', parts[1][95:99])[0]
+                    self.map = list(struct.unpack_from(f'<{data_len}b', parts[1][99:]))
                     self.map = np.array(self.map).reshape((height, width)).tolist()
                     if self.debug:
                         print(f"Received msg: Resolution: {self.reso}, Map: {self.map[-1][-10:]}")
