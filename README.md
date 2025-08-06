@@ -1,5 +1,26 @@
 # Instructions
 
+Here are the instructions for:
+
+1. [Downloading A* from Google Colab to your computer ](#how-to-download-a-script-from-google-colab-to-your-local-computer)
+
+2. [Sending path to SVEA from your computer](#to-send-the-path-from-your-computer-to-the-svea-vehicle-there-are-2-major-components)
+
+
+## How to download A* script from Google Colab to your local computer
+
+1. In your Google Colab notebook, go to the upper-left corner and click "File".
+
+2. From the dropdown menu, select "Download" → "Download .py".
+
+3. The script will download to your computer as a `.py` file.
+
+4. Open your Downloads folder (or wherever your browser saves files) and locate the downloaded file.
+
+5. Move or copy the file to the following folder: `pink_summer_camp_robotics/python/`
+
+6. Rename the file to `pathplanning.py` if it has a different name.
+
 ## To send the path from your computer to the SVEA vehicle, there are 2 major components:
 1. docker 
     - to run a "datastreamer" to connects your computer to the SVEA vehicle
