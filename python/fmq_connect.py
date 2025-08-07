@@ -36,6 +36,7 @@ class remote_control():
         self.reso = 0
         self.origin = None
 
+        self.sent_path = False
 
         threads = []
         publishPath = ["fmq/path"]
@@ -98,6 +99,10 @@ class remote_control():
     def publishPath(self, topic):
         while not stop_event.is_set():  
             if self.state.any() != None and self.reso != 0 and self.map != None:
+                if self.sent_path:
+                    new_end = input("Enter a new end point (e.g. 3,3): ")
+                    self.end = str_to_tuple(new_end)
+                    self.sent_path = False
                 try:
                     start_x = int((self.state[1] - self.origin[1])/self.reso)
                     start_y = int((self.state[0] - self.origin[0])/self.reso)
@@ -114,10 +119,13 @@ class remote_control():
                     self.fleetmq.publishBytes(topic, payload)
                     if self.debug:
                         print(f"payload: {payload}")
+                    if len(flat_traj) != 0:
+                        self.sent_path = True
                 except Exception as e:
                     print(f"Error from publish Path: {e}")
-
+                self.sent_path = True
                 time.sleep(1)
+            
 
 def main(args=None):
     parser = argparse.ArgumentParser(description='FMQ Remote Path Planner')
