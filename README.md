@@ -152,13 +152,12 @@ You can now continue with the next part. If you do not see the above layout, let
 
 5. Now, you can start sending the path from pathplanning to our SVEA vehicle. On the same terminal, type: 
     ```
-    python fmq_connect.py --end=1,2
+    python fmq_connect.py
     ```
     or
     ```
-    python3 fmq_connect.py --end=1,2
+    python3 fmq_connect.py
     ```
-    The command with `--end=1,2` specify the goal position of the vehicle, you can change the value of `1` and `2` to anything that are within the map boundary.
 
 ### Bonus
 If you want to see the path planned by A*, you can go onto 
@@ -302,13 +301,12 @@ Now on the website, you will be able to see a path planned by A*.
 
 5. Now, you can start sending the path from pathplanning to our SVEA vehicle. On the same command prompt, type: 
     ```
-    python fmq_connect.py --end=1,2
+    python fmq_connect.py
     ```
     or
     ```
-    python3 fmq_connect.py --end=1,2
+    python3 fmq_connect.py
     ```
-    The command with `--end=1,2` specify the goal position of the vehicle, you can change the value of `1` and `2` to anything that are within the map boundary.
 
 ### Bonus
 
@@ -438,14 +436,12 @@ Now on the website, you will be able to see a path planned by A*.
 
 5. Now, you can start sending the path from pathplanning to our SVEA vehicle. On the same terminal, type: 
     ```
-    python fmq_connect.py --end=1,2
+    python fmq_connect.py
     ```
     or
     ```
-    python3 fmq_connect.py --end=1,2
+    python3 fmq_connect.py
     ```
-    The command with `--end=1,2` specify the goal position of the vehicle, you can change the value of `1` and `2` to anything that are within the map boundary.
-
 ### Bonus
 
 If you want to see the path planned by A*, you can go onto [Foxglove](https://app.foxglove.dev/). Then, after you have created an account, you can go to "Open connection..." (on upper left) and on the websocket URL, change localhost to `ip-address`, and press "open". Let us know when you are on this step, and we can show you the correct ip-address. 
