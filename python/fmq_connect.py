@@ -18,7 +18,7 @@ import struct
 stop_event = Event()
 
 class remote_control():
-    def __init__(self, end):
+    def __init__(self):
         self.fleetmq = fleetmqsdk.FleetMQ()
 
         config, addresses = self.fleetmq.getConfig(True)    
@@ -28,7 +28,7 @@ class remote_control():
         self.map = None
 
         self.debug = False
-        self.end = end #(38, 53)
+        self.end = None
 
         self.delimiter = b"|abc|"
 
@@ -100,27 +100,34 @@ class remote_control():
         while not stop_event.is_set():  
             if self.state.any() != None and self.reso != 0 and self.map != None:
                 if self.sent_path:
-                    new_end = input("Enter a new end point (e.g. 3,3): ")
+                    new_end = input("Enter a new end point (e.g. 3,3), or type 'exit' to exit: ")
+                    if new_end == "exit":
+                        stop_event.set()
+                        self.fleetmq.close()
+                        exit()
                     self.end = str_to_tuple(new_end)
                     self.sent_path = False
                 try:
-                    start_x = int((self.state[1] - self.origin[1])/self.reso)
-                    start_y = int((self.state[0] - self.origin[0])/self.reso)
-                    start = (start_x, start_y)
-                    traj = astar(self.map, start, self.end)
-                    if self.debug:
-                        print(traj)
-                    flat_traj = [val for pair in traj for val in pair]
-                    data_len = len(flat_traj)
-                    header = struct.pack('<III', 0, 0, data_len)
-                    data_section = struct.pack(f'<{data_len}i', *flat_traj)
-                    msg_bytes = header + data_section
-                    payload = b"std_msgs/Int32MultiArray" + self.delimiter + msg_bytes
-                    self.fleetmq.publishBytes(topic, payload)
-                    if self.debug:
-                        print(f"payload: {payload}")
-                    if len(flat_traj) != 0:
-                        self.sent_path = True
+                    if self.end != None:
+                        start_x = int((self.state[1] - self.origin[1])/self.reso)
+                        start_y = int((self.state[0] - self.origin[0])/self.reso)
+                        start = (start_x, start_y)
+                        traj = astar(self.map, start, self.end)
+                        if self.debug:
+                            print(traj)
+                        flat_traj = [val for pair in traj for val in pair]
+                        data_len = len(flat_traj)
+                        header = struct.pack('<III', 0, 0, data_len)
+                        data_section = struct.pack(f'<{data_len}i', *flat_traj)
+                        msg_bytes = header + data_section
+                        payload = b"std_msgs/Int32MultiArray" + self.delimiter + msg_bytes
+                        for i in range(2):
+                            self.fleetmq.publishBytes(topic, payload)
+                            time.sleep(0.1)
+                        if self.debug:
+                            print(f"payload: {payload}")
+                        if len(flat_traj) != 0:
+                            self.sent_path = True
                 except Exception as e:
                     print(f"Error from publish Path: {e}")
                 self.sent_path = True
@@ -128,10 +135,7 @@ class remote_control():
             
 
 def main(args=None):
-    parser = argparse.ArgumentParser(description='FMQ Remote Path Planner')
-    parser.add_argument('--end', type=str_to_tuple, help="End point as 'x,y'")
-    args = parser.parse_args()
-    remote_control(args.end)
+    remote_control()
 
 def str_to_tuple(s):
     try:
