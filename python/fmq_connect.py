@@ -13,6 +13,7 @@ from pathplanning import astar
 import numpy as np
 from io import BytesIO
 import struct
+import json
 
 
 stop_event = Event()
@@ -86,10 +87,15 @@ class remote_control():
             if raw_msg != None:
                 try:
                     parts = raw_msg.split(self.delimiter)
-                    self.reso, width, height, origin_x, origin_y = struct.unpack_from('<fII dd', parts[1], 27)
+                    # decoded = parts[1].decode("utf-8")
+                    decoded = json.loads(parts[1])
+                    self.reso = decoded["reso"]
+                    width = decoded["width"]
+                    height = decoded["height"]
+                    origin_x = decoded["origin_x"]
+                    origin_y = decoded["origin_y"]
                     self.origin = (origin_x, origin_y)
-                    data_len = struct.unpack_from('<I', parts[1][95:99])[0]
-                    self.map = list(struct.unpack_from(f'<{data_len}b', parts[1][99:]))
+                    self.map = decoded["data"]
                     self.map = np.array(self.map).reshape((height, width)).tolist()
                     if self.debug:
                         print(f"Received msg: Resolution: {self.reso}, Map: {self.map[-1][-10:]}")
