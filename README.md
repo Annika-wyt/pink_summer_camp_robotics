@@ -84,6 +84,8 @@ You can now continue with the next part. If you do not see the above layout, let
     ```
     docker compose -f datastreamer-linux-<groupName>.yml up
     ```
+    groupName is the 1a, 1b, 1c, 1d, 2a, 2b, 2c, 2d experiment ID you are assigned.
+
 
     If you see something like:
 
@@ -225,7 +227,8 @@ Now on the website, you will be able to see a path planned by A*.
     ```
     docker compose -f datastreamer-windows-<groupName>.yml up
     ```
-
+    groupName is the 1a, 1b, 1c, 1d, 2a, 2b, 2c, 2d experiment ID you are assigned.
+    
     If you see something like:
 
     ```
@@ -367,6 +370,8 @@ Now on the website, you will be able to see a path planned by A*.
     ```
     docker compose -f datastreamer-mac-<groupName>.yml up
     ```
+    groupName is the 1a, 1b, 1c, 1d, 2a, 2b, 2c, 2d experiment ID you are assigned.
+
 
     If you see something like:
 
