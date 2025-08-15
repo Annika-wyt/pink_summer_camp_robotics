@@ -87,7 +87,7 @@ class remote_control():
             if raw_msg != None:
                 try:
                     parts = raw_msg.split(self.delimiter)
-                    # decoded = parts[1].decode("utf-8")
+                    # decoded = parts[1].decode("utf-8")    
                     decoded = json.loads(parts[1])
                     self.reso = decoded["reso"]
                     width = decoded["width"]
@@ -112,6 +112,7 @@ class remote_control():
                         self.fleetmq.close()
                         exit()
                     self.end = str_to_tuple(new_end)
+                    self.end = (self.end[1], self.end[0])
                     self.sent_path = False
                 try:
                     if self.end != None:
