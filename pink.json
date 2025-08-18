@@ -3,13 +3,13 @@
     "3D!37xlp7y": {
       "cameraState": {
         "perspective": true,
-        "distance": 10.266841665584016,
-        "phi": 24.278244851460887,
-        "thetaOffset": 114.97215666200289,
+        "distance": 21.944791869425085,
+        "phi": 36.41733869797736,
+        "thetaOffset": 58.97503798523262,
         "targetOffset": [
-          0.8835537938324617,
-          -1.2164161928748483,
-          3.9827133445725505e-17
+          -0.03794761889449122,
+          -0.22290280589347403,
+          -7.530547832460473e-17
         ],
         "target": [
           0,
@@ -50,11 +50,49 @@
         },
         "frame:odom": {
           "visible": false
+        },
+        "frame:wheel_encoder": {
+          "visible": false
+        },
+        "frame:obs_map": {
+          "visible": false
+        },
+        "frame:mount_body": {
+          "visible": false
+        },
+        "frame:lidar_base": {
+          "visible": false
+        },
+        "frame:lidar_top": {
+          "visible": false
+        },
+        "frame:lidar_cap": {
+          "visible": false
+        },
+        "frame:zed_box": {
+          "visible": false
+        },
+        "frame:tire1": {
+          "visible": false
+        },
+        "frame:tire2": {
+          "visible": false
+        },
+        "frame:tire3": {
+          "visible": false
+        },
+        "frame:tire4": {
+          "visible": false
+        },
+        "frame:base_link": {
+          "visible": false
         }
       },
       "topics": {
         "/map": {
-          "visible": true
+          "visible": true,
+          "colorMode": "map",
+          "alpha": 0.5000000000000001
         },
         "/scan": {
           "visible": true,
@@ -66,6 +104,41 @@
           "visible": true,
           "lineWidth": 0.1,
           "type": "line"
+        },
+        "/svea1/pose": {
+          "visible": true
+        },
+        "param:/robot_description": {
+          "visible": true
+        },
+        "/astar_map": {
+          "visible": true
+        },
+        "/svea/map": {
+          "visible": true,
+          "colorMode": "map",
+          "frameLocked": false,
+          "alpha": 0.5000000000000001
+        },
+        "/visualization_marker": {
+          "visible": true,
+          "namespaces": {
+            "my_namespace": {
+              "visible": true
+            }
+          }
+        },
+        "/viz_edges": {
+          "visible": false
+        },
+        "/viz_lidar_rays": {
+          "visible": false
+        },
+        "/obs_map": {
+          "visible": false
+        },
+        "/move_base_simple/goal": {
+          "visible": false
         }
       },
       "layers": {
@@ -75,8 +148,8 @@
           "label": "Grid",
           "instanceId": "b2cdb6c1-4db9-42c0-983d-410edc02dfd5",
           "layerId": "foxglove.Grid",
-          "size": 10,
-          "divisions": 10,
+          "size": 15,
+          "divisions": 15,
           "lineWidth": 1,
           "color": "#248eff",
           "position": [
@@ -107,56 +180,62 @@
       "diffMethod": "custom",
       "diffTopicPath": "",
       "showFullMessageForDiff": false,
-      "topicPath": "/svea/path"
+      "topicPath": "/svea/state"
     },
     "RawMessages!1aa52v8": {
       "diffEnabled": false,
       "diffMethod": "custom",
       "diffTopicPath": "",
       "showFullMessageForDiff": false,
-      "topicPath": "/fmq/path"
+      "topicPath": "/svea/path"
     },
-    "CallService!2m6cc7m": {
-      "requestPayload": "{\"data\":true}",
-      "layout": "vertical",
-      "timeoutSeconds": 10,
-      "serviceName": "/set_auto_control",
-      "editingMode": false,
-      "foxglovePanelTitle": "Change to Auto Control",
-      "buttonText": "Autonomous Driving"
+    "RawMessages!189296i": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/imu/data"
     },
-    "CallService!2gjde2u": {
-      "requestPayload": "{\"data\":false}",
-      "layout": "vertical",
-      "timeoutSeconds": 10,
-      "serviceName": "/set_auto_control",
-      "editingMode": false,
-      "foxglovePanelTitle": "Change to Auto Control",
-      "buttonText": "Manual Driving"
+    "RawMessages!3g2j52g": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/actuation_twist"
+    },
+    "RawMessages!8o01zh": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/lli/ctrl_request"
     },
     "Tab!3zxdz11": {
       "activeTabIdx": 0,
       "tabs": [
         {
-          "title": "",
+          "title": "Visualization",
           "layout": {
             "first": "3D!37xlp7y",
             "second": {
-              "first": {
-                "first": "RawMessages!3w3qt5l",
-                "second": "RawMessages!1aa52v8",
-                "direction": "column"
-              },
-              "second": {
-                "first": "CallService!2m6cc7m",
-                "second": "CallService!2gjde2u",
-                "direction": "column"
-              },
-              "direction": "column",
-              "splitPercentage": 44.637385086823286
+              "first": "RawMessages!3w3qt5l",
+              "second": "RawMessages!1aa52v8",
+              "direction": "column"
             },
             "direction": "row",
-            "splitPercentage": 56.53120464441219
+            "splitPercentage": 70.70422535211267
+          }
+        },
+        {
+          "title": "Sensor data",
+          "layout": {
+            "first": {
+              "first": "RawMessages!189296i",
+              "second": "RawMessages!3g2j52g",
+              "direction": "row"
+            },
+            "second": "RawMessages!8o01zh",
+            "direction": "column"
           }
         }
       ]
