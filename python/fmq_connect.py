@@ -106,37 +106,61 @@ class remote_control():
         while not stop_event.is_set():  
             if self.state.any() != None and self.reso != 0 and self.map != None:
                 if self.sent_path:
-                    new_end = input("Enter a new end point (e.g. 3,3), or type 'exit' to exit: ")
+                    new_end = input("Enter a new end point (e.g. 60,30), or type 'exit' to exit: ")
                     if new_end == "exit":
                         stop_event.set()
                         self.fleetmq.close()
                         exit()
                     self.end = str_to_tuple(new_end)
-                    self.end = (self.end[1], self.end[0])
-                    self.sent_path = False
-                try:
-                    if self.end != None:
-                        start_x = int((self.state[1] - self.origin[1])/self.reso)
-                        start_y = int((self.state[0] - self.origin[0])/self.reso)
-                        start = (start_x, start_y)
-                        traj = astar(self.map, start, self.end)
-                        if self.debug:
-                            print(traj)
-                        flat_traj = [val for pair in traj for val in pair]
-                        data_len = len(flat_traj)
-                        header = struct.pack('<III', 0, 0, data_len)
-                        data_section = struct.pack(f'<{data_len}i', *flat_traj)
-                        msg_bytes = header + data_section
-                        payload = b"std_msgs/Int32MultiArray" + self.delimiter + msg_bytes
-                        for i in range(2):
-                            self.fleetmq.publishBytes(topic, payload)
-                            time.sleep(0.1)
-                        if self.debug:
-                            print(f"payload: {payload}")
-                        if len(flat_traj) != 0:
-                            self.sent_path = True
-                except Exception as e:
-                    print(f"Error from publish Path: {e}")
+                    self.end = (int(self.end[1]), int(self.end[0]))
+                    get_new_point = False
+                    if self.map[self.end[0]][self.end[1]] > 0:
+                        for i in range(self.end[0]-2, self.end[0]+2):
+                            for j in range(self.end[1]-2, self.end[1]+2):
+                                if self.map[i][j] == 0:
+                                    get_new_point = True
+                                    self.end = (i,j)
+                                    break
+                            if get_new_point:
+                                break
+                        if not get_new_point:
+                            print(f"NOT VALID END POINTS, END POINT IN AN OBSTACLE")
+                    elif self.map[self.end[0]][self.end[1]] == -1:
+                        for i in range(self.end[0]-2, self.end[0]+2):
+                            for j in range(self.end[1]-2, self.end[1]+2):
+                                if self.map[i][j] == 0:
+                                    get_new_point = True
+                                    self.end = (i,j)
+                                    break
+                            if get_new_point:
+                                break
+                        if not get_new_point:
+                            print(f"NOT VALID END POINTS, END POINT IN AN UNKNOWN PLACE")
+                    if self.map[self.end[0]][self.end[1]] == 0:
+                        self.sent_path = False
+                        try:
+                            if self.end != None:
+                                start_x = int((self.state[1] - self.origin[1])/self.reso)
+                                start_y = int((self.state[0] - self.origin[0])/self.reso)
+                                start = (start_x, start_y)
+                                traj = astar(self.map, start, self.end)
+                                if self.debug:
+                                    print(traj)
+                                flat_traj = [val for pair in traj for val in pair]
+                                data_len = len(flat_traj)
+                                header = struct.pack('<III', 0, 0, data_len)
+                                data_section = struct.pack(f'<{data_len}i', *flat_traj)
+                                msg_bytes = header + data_section
+                                payload = b"std_msgs/Int32MultiArray" + self.delimiter + msg_bytes
+                                for i in range(2):
+                                    self.fleetmq.publishBytes(topic, payload)
+                                    time.sleep(0.1)
+                                if self.debug:
+                                    print(f"payload: {payload}")
+                                if len(flat_traj) != 0:
+                                    self.sent_path = True
+                        except Exception as e:
+                            print(f"Error from publish Path: {e}")
                 self.sent_path = True
                 time.sleep(1)
             
