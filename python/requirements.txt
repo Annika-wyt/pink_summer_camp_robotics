@@ -1,2 +1,3 @@
-fleetmqsdk
+fleetmqsdk==0.0.9
 numpy
+wcwidth
